@@ -4,32 +4,21 @@ import { styles } from '../styles/Report.styles';
 import HeaderReport from './HeaderReport';
 
 type ReportProps = {
+    imgEvi?: any;
     img?: any;
+    description?: string;
+    name?: string;
+    location?: string;
+    hoursAgo?: number;  
 };
 
-const Report: React.FC<ReportProps> = ({img = require('../../assets/user.png')}) => {
+const Report: React.FC<ReportProps> = ({imgEvi = require('../../assets/user.png'), img = require('../../assets/user.png'), name = 'Nombre no disponible', location = 'Ubicación no disponible', hoursAgo = 0, description = 'Descripcion no disponible'}) => {
     return(
         <>
             <View style={styles.mainContainer}>
-                <HeaderReport img={'../../assets/user.png'} name='Ana Garcia' location='Centro de la ciudad' hoursAgo={2}></HeaderReport>
-                <Image style = {styles.img}></Image>
-                <Text style = {styles.description}>Problema con el alumbrado publico de la ciudad</Text>
-                <View style = {styles.buttonsContainer}>
-                    <TouchableOpacity style={styles.button}>
-                        <Text style={styles.buttonText}>👍 Me gusta</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.button}>
-                        <Text style={styles.buttonText}>💬 Comentar</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.button}>
-                        <Text style={styles.buttonText}>📥 Compartir</Text>
-                    </TouchableOpacity>
-                </View>
-            </View>
-            <View style={styles.mainContainer}>
-                <HeaderReport img={'../../assets/user.png'} name='Carlos Mendoza' location='Parque central' hoursAgo={4}></HeaderReport>
-                <Image style = {styles.img}></Image>
-                <Text style = {styles.description}>Basura acumulada en los contenedores del parque</Text>
+                <HeaderReport img={img} name={name} location={location} hoursAgo={hoursAgo}></HeaderReport>
+                <Image source={imgEvi} style = {styles.img}></Image>
+                <Text style = {styles.description}>{description}</Text>
                 <View style = {styles.buttonsContainer}>
                     <TouchableOpacity style={styles.button}>
                         <Text style={styles.buttonText}>👍 Me gusta</Text>

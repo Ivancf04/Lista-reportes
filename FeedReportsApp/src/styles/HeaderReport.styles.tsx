@@ -12,7 +12,6 @@ export const styles = StyleSheet.create({
         height: 50,
         borderRadius: 25,
         marginRight: 10,
-        borderWidth: 1
     },
     infoContainer:{
         alignSelf: 'center'

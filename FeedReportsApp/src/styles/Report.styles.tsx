@@ -20,7 +20,8 @@ export const styles = StyleSheet.create({
         borderWidth: 1,
         borderColor: '#cccccc4d',
         borderRadius: 8,
-        backgroundColor: '#f6f6f6'
+        backgroundColor: '#f6f6f6',
+        resizeMode: 'center'
     },
     description:{
         width: '95%',
