@@ -46,7 +46,6 @@ export default function NewReportScreen() {
   return (
       <ScrollView contentContainerStyle={styles.scrollContent}>
         <View style={styles.container}>
-          <Text style={styles.title}>Nuevo Reporte</Text>
 
           <View style={styles.section}>
             <Text style={styles.label}>📍 Permiso de ubicación</Text>
