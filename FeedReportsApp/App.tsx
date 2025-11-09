@@ -1,5 +1,5 @@
-import React from "react";
-import { View, StyleSheet, Alert, ScrollView } from "react-native";
+import React, { useEffect, useState } from "react";
+import { View, StyleSheet, ScrollView } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Header from "./src/components/Header";
@@ -9,7 +9,13 @@ import NewReportScreen from "./src/screens/NewReportScreen";
 
 const Stack = createNativeStackNavigator();
 
-function HomeScreen({ navigation }: any) {
+function HomeScreen({ navigation, route, reports, setReports }: any) {
+  useEffect(() => {
+    if (route.params?.updatedReport) {
+      setReports((prevReports: any) => [route.params.updatedReport, ...prevReports]);
+    }
+  }, [route.params?.updatedReport]);
+
   const handleButtonPress = () => {
     navigation.navigate("Nuevo Reporte");
   };
@@ -23,22 +29,9 @@ function HomeScreen({ navigation }: any) {
       />
       <ScrollView style={{ flexGrow: 1, marginBottom: 40 }}>
         <View style={styles.reportsContainer}>
-          <Report
-            img={require("./assets/user.png")}
-            imgEvi={require("./assets/reporte.png")}
-            name="Ana Garcia"
-            location="Centro de la ciudad"
-            hoursAgo={2}
-            description="Problema con el alumbrado público en la calle principal"
-          />
-          <Report
-            img={require("./assets/user.png")}
-            imgEvi={require("./assets/reporte.png")}
-            name="Carlos Mendoza"
-            location="Parque Central"
-            hoursAgo={4}
-            description="Basura acumulada en los contenedores del parque"
-          />
+          {reports.map((r: any, i: number) => (
+            <Report key={i} {...r} />
+          ))}
         </View>
       </ScrollView>
     </View>
@@ -46,10 +39,33 @@ function HomeScreen({ navigation }: any) {
 }
 
 export default function App() {
+  const [reports, setReports] = useState([
+    {
+      img: require("./assets/user.png"),
+      imgEvi: require("./assets/reporte.png"),
+      name: "Ana Garcia",
+      location: "Centro de la ciudad",
+      hoursAgo: 2,
+      description: "Problema con el alumbrado público en la calle principal",
+    },
+    {
+      img: require("./assets/user.png"),
+      imgEvi: require("./assets/reporte.png"),
+      name: "Carlos Mendoza",
+      location: "Parque Central",
+      hoursAgo: 4,
+      description: "Basura acumulada en los contenedores del parque",
+    },
+  ]);
+
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Inicio" component={HomeScreen} />
+        <Stack.Screen name="Inicio">
+          {(props) => (
+            <HomeScreen {...props} reports={reports} setReports={setReports} />
+          )}
+        </Stack.Screen>
         <Stack.Screen name="Nuevo Reporte" component={NewReportScreen} />
       </Stack.Navigator>
     </NavigationContainer>
@@ -66,5 +82,7 @@ const styles = StyleSheet.create({
     padding: 10,
     width: "100%",
     alignItems: "center",
+    flex: 1,
+    marginBottom: 40,
   },
 });

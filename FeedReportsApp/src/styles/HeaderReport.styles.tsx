@@ -12,15 +12,18 @@ export const styles = StyleSheet.create({
         height: 50,
         borderRadius: 25,
         marginRight: 10,
+        alignSelf: 'center'
     },
     infoContainer:{
-        alignSelf: 'center'
+        alignSelf: 'center',
+        width: '50%'
     },
     name:{
         fontWeight: 'bold'
     },
     location:{
-        color: 'gray'
+        color: 'gray',
+        overflow: 'hidden'
     },
     hoursAgo:{
         marginLeft: 'auto',

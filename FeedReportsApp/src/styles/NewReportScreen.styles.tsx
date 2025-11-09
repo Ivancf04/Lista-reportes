@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
-    scrollContent: {
+  scrollContent: {
     flexGrow: 1,
     justifyContent: "center",
     alignItems: "center",
@@ -47,7 +47,7 @@ export const styles = StyleSheet.create({
     fontSize: 15,
     backgroundColor: "#f9f9f9",
   },
-  button:{
+  button: {
     borderRadius: 10,
     width: "100%",
     height: 45,
@@ -55,23 +55,28 @@ export const styles = StyleSheet.create({
     paddingVertical: 15,
     alignItems: "center",
   },
-  buttonImg:{
+  buttonImg: {
     borderRadius: 10,
     width: "100%",
     height: 180,
-    paddingVertical: 15,
     alignItems: "center",
     backgroundColor: "#f0f0f0",
     justifyContent: "center",
   },
-  buttonTextImg:{
+  reportImg: {
+    width: "100%", 
+    height: "100%", 
+    borderRadius: 10
+  }
+  ,
+  buttonTextImg: {
     color: "Black",
     textAlign: "center",
-    alignSelf: "center"
+    alignSelf: "center",
   },
-  buttonText:{
+  buttonText: {
     color: "white",
-    fontSize: 14
+    fontSize: 14,
   },
   submitButton: {
     backgroundColor: "#28C74E",
@@ -85,4 +90,61 @@ export const styles = StyleSheet.create({
     fontWeight: "bold",
     fontSize: 16,
   },
+  cameraContainer: {
+    flex: 1,
+    margin: 10,
+    width: "95%",
+    borderRadius: 10,
+    minHeight: 600,
+    overflow: "hidden",
+    backgroundColor: "#ffffffff",
+    marginBottom: 20,
+    alignItems: "center",
+    paddingTop: 20,
+  },
+
+  camera: {
+    width: "100%",
+    aspectRatio: 1,
+  },
+
+  cameraButtonContainer: {
+    marginTop: 100,
+    width: "100%",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "transparent",
+  },
+  shutterButton: {
+    width: 80,
+    height: 80,
+    borderRadius: 40,
+    borderWidth: 6,
+    borderColor: "#5a5a5aff",
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "transparent",
+  },
+
+  shutterInner: {
+    width: 60,
+    height: 60,
+    borderRadius: 30,
+    backgroundColor: "#6e6e6eff",
+  },
+  cancelButton: {
+    backgroundColor: "#ff4545ff",
+    borderRadius: 10,
+    paddingVertical: 15,
+    alignItems: "center",
+    marginTop: 10,
+    width: "30%"
+  },
+  cancelText: {
+    color: "#fff",
+    fontWeight: "bold",
+    fontSize: 16,
+  }
 });
